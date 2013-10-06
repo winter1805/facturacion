@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html >
+<head> 
+<title>Sistema de Facturacion</title>
+</head>
+
+<body>
+<br><br><br><br><br><br><br><br><br>
+	<br><center><h2>Sistema de Facturacion Darmacio </h2></center><br>
+
+<center>
+<table border="0px">
+<tr><td>Cedula Cliente</td>
+<td><input type="text"></td></tr>	
+<tr><td>Nombre Cliente</td>
+<td><input type="text"></td></tr>	
+
+<tr>
+	<td><center>Codigo</center></td>
+	<td><center>Descripcion</center></td>
+	<td><center>Valor unitario</center></td>
+	<td><center>Cantidad</center></td>
+	<td><center>Subtotal</center></td>
+</tr>
+
+<tr>
+	<td> <input type="text"> </td>
+	<td> <input type="text"> </td>
+	<td> <input type="text" id="val1" onChange="calcular(val1.value, cant1.value, sub1.id)"></td>
+	<td> <input type="text" id="cant1" onChange="calcular(val1.value, cant1.value, sub1.id)"></td>
+	<td> <input type="text" id="sub1" value="0"></td>
+</tr>
+
+<tr>
+	<td> <input type="text"> </td>
+	<td> <input type="text"> </td>
+	<td> <input type="text" id="val2" onChange="calcular(val2.value, cant2.value, sub2.id)"></td>
+	<td> <input type="text" id="cant2"  onChange="calcular(val2.value, cant2.value, sub2.id)"></td>
+	<td> <input type="text" id="sub2" value="0"></td>
+</tr>
+
+<tr>
+	<td> <input type="text"> </td>
+	<td> <input type="text"> </td>
+	<td> <input type="text" id="val3"  onChange="calcular(val3.value, cant3.value, sub3.id)"></td>
+	<td> <input type="text" id="cant3" onChange="calcular(val3.value, cant3.value, sub3.id)"></td>
+	<td> <input type="text" id="sub3" value="0"></td>
+</tr>
+
+<tr>
+	<td> <input type="text"> </td>
+	<td> <input type="text"> </td>
+	<td> <input type="text" id="val4" onChange="calcular(val4.value, cant4.value, sub4.id)"> </td>
+	<td> <input type="text" id="cant4" onChange="calcular(val4.value, cant4.value, sub4.id)"> </td>
+	<td> <input type="text" id="sub4" value="0"></td>
+</tr>
+
+<tr>
+	<td> <input type="text"> </td>
+	<td> <input type="text"> </td>
+	<td> <input type="text" id="val5" onChange="calcular(val5.value, cant5.value, sub5.id)"> </td>
+	<td> <input type="text" id="cant5" onChange="calcular(val5.value, cant5.value, sub5.id)"> </td>
+	<td> <input type="text" id="sub5" value="0"></td>
+
+</tr>
+<tr>
+	<td> <input type="text" </td>
+	<td> <input type="text" </td>
+	<td> <input type="text" id="val6" onChange="calcular(val6.value, cant6.value, sub6.id)"> </td>
+	<td> <input type="text" id="cant6" onChange="calcular(val6.value, cant6.value, sub6.id)"> </td>
+	<td> <input type="text" id="sub6" value="0" ></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><center>Subtotal</center> </td>
+	<td> <input type="text" id="cajasubtotal"></td>
+</tr>
+
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><center>Iva 12 %</center></td>
+	<td> <input type="text" id="cajaiva"></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td><center>Valor Total</center></td>
+	<td> <input type="text" id="cajatotal"></td>
+</tr>
+</table>
+
+<button onClick="totalFactura()">CALCULAR TOTAL DE FACTURA</button>
+</center>
+
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+var sub = 0;
+var multi = 0;
+var iva = 0;
+var vtotal = 0;
+var s1 = 0;
+var s2 = 0;
+var s3 = 0;
+var s4 = 0;
+var s5 = 0;
+var s6 = 0;
+
+	
+function calcular(val, cant, subto) {
+	multi = (val * cant); 
+	document.getElementById(subto).value = multi;
+
+}
+
+function totalFactura () {
+	s1 = document.getElementById("sub1").value;
+	s2 = document.getElementById("sub2").value;
+	s3 = document.getElementById("sub3").value;
+	s4 = document.getElementById("sub4").value;
+	s5 = document.getElementById("sub5").value;
+	s6 = document.getElementById("sub6").value;
+	s1 = parseInt(s1);
+	s2 = parseInt(s2);
+	s3 = parseInt(s3);
+	s4 = parseInt(s4);
+	s5 = parseInt(s5);
+	s6 = parseInt(s6);
+
+
+	sub = (s1 + s2 +s3 +s4 +s5 +s6);
+	document.getElementById("cajasubtotal").value = sub;
+
+	iva = (sub *12)/100;
+	document.getElementById("cajaiva").value = iva;
+
+	vtotal = sub + iva ;
+	document.getElementById("cajatotal").value = vtotal;
+
+
+
+}
+
+
+
+
+</script>
+
+<style type="text/css">
+html
+{
+background-image:url(fondo.jpg);
+background-repeat:no-repeat;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+</style>
